@@ -3,7 +3,7 @@ import NavBar from "../shared/NavBar";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <NavBar />
       <Outlet />
     </div>
