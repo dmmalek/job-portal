@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import registerAnimation from "../assets/web-address-registration.json";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import SocialLogIn from "../shared/SocialLogIn";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -31,6 +32,7 @@ const Register = () => {
         {/* Login Card */}
         <div className="card bg-base-100 w-full max-w-lg shadow-xl">
           <form onSubmit={handleSignUp} className="card-body">
+            <h1 className="text-5xl font-bold text-center">Register now!</h1>
             <fieldset className="fieldset space-y-2">
               <label className="label">Email</label>
               <input
@@ -56,6 +58,9 @@ const Register = () => {
               <button className="btn btn-neutral w-full mt-4">Sign Up</button>
             </fieldset>
           </form>
+          <div>
+            <SocialLogIn />
+          </div>
         </div>
       </div>
     </div>

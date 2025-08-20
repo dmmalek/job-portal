@@ -21,7 +21,10 @@ const NavBar = () => {
         console.log("successful sign out");
       })
       .catch((error) => {
-        console.log("failed to sign out .stay here. dont leave me alone");
+        console.log(
+          "failed to sign out .stay here. dont leave me alone",
+          error
+        );
       });
   };
   return (
@@ -65,14 +68,14 @@ const NavBar = () => {
               </button>
             </>
           ) : (
-            <>
+            <div className="space-x-2">
               <Link to="/register" className="btn">
                 Register
               </Link>
               <Link to="/login">
                 <button className="btn">Sign In</button>
               </Link>
-            </>
+            </div>
           )}
         </div>
       </div>

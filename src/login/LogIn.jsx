@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import signInAnimation from "../assets/Login.json";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import SocialLogIn from "../shared/SocialLogIn";
 
 const LogIn = () => {
   const { signInUser } = useContext(AuthContext);
@@ -30,6 +31,7 @@ const LogIn = () => {
         {/* Login Card */}
         <div className="card bg-base-100 w-full max-w-lg shadow-xl">
           <form onSubmit={handleSignIn} className="card-body">
+            <h1 className="text-5xl font-bold text-center">Login now!</h1>
             <fieldset className="fieldset space-y-2">
               <label className="label">Email</label>
               <input
@@ -55,6 +57,9 @@ const LogIn = () => {
               <button className="btn btn-neutral w-full mt-4">Login</button>
             </fieldset>
           </form>
+          <div>
+            <SocialLogIn />
+          </div>
         </div>
       </div>
     </div>
