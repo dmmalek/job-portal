@@ -3,9 +3,15 @@ import signInAnimation from "../assets/Login.json";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import SocialLogIn from "../shared/SocialLogIn";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const { signInUser } = useContext(AuthContext);
+  const location = useLocation();
+
+  const navigate = useNavigate();
+
   const handleSignIn = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,6 +21,7 @@ const LogIn = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(location.state);
       })
       .catch((error) => {
         console.log(error.message);
