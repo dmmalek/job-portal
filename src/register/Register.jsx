@@ -3,9 +3,12 @@ import registerAnimation from "../assets/web-address-registration.json";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import SocialLogIn from "../shared/SocialLogIn";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -13,9 +16,26 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    const passwordValidation = passwordRegex.test(password);
+    if (!passwordValidation) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password must be at least 6 characters long, contain at least one uppercase, one lowercase, and one number!",
+      });
+    }
+
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        if (result.user) {
+          Swal.fire({
+            title: "Register SuccessFull!",
+            icon: "success",
+            draggable: true,
+          });
+          navigate("/");
+        }
       })
       .catch((error) => {
         console.log("ERROR", error);
