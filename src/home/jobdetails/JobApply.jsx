@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../custom-hook/useAuth";
 import Swal from "sweetalert2";
 
 const JobApply = () => {
   const { id } = useParams();
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleApplySubmit = (e) => {
     e.preventDefault();
@@ -30,7 +31,6 @@ const JobApply = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
             position: "center",
@@ -39,6 +39,7 @@ const JobApply = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate("/my-application");
         }
       });
   };
