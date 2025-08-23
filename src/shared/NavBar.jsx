@@ -11,9 +11,11 @@ const NavBar = () => {
       <li>
         <Link to={"/"}>Home</Link>
       </li>
-      <li>
-        <Link to={"/my-application"}>My Application</Link>
-      </li>
+      {user && (
+        <li>
+          <Link to={"/my-application"}>My Application</Link>
+        </li>
+      )}
     </>
   );
 
