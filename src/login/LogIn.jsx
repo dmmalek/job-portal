@@ -17,11 +17,13 @@ const LogIn = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
-        navigate(location.state);
+        // console.log(result.user);
+        if (result.user) {
+          return navigate(location.state);
+        }
       })
       .catch((error) => {
         console.log(error.message);

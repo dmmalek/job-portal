@@ -5,12 +5,14 @@ import logo from "../assets/icon/logo.png";
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
-  console.log(user);
 
   const links = (
     <>
       <li>
         <Link to={"/"}>Home</Link>
+      </li>
+      <li>
+        <Link to={"/my-application"}>My Application</Link>
       </li>
     </>
   );
