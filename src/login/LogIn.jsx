@@ -22,7 +22,9 @@ const LogIn = () => {
       .then((result) => {
         // console.log(result.user);
         if (result.user) {
-          return navigate(location.state);
+          // return navigate(location.state);
+          const redirectTo = location.state || "/";
+          navigate(redirectTo);
         }
       })
       .catch((error) => {

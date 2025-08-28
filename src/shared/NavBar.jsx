@@ -12,9 +12,17 @@ const NavBar = () => {
         <Link to={"/"}>Home</Link>
       </li>
       {user && (
-        <li>
-          <Link to={"/my-application"}>My Application</Link>
-        </li>
+        <>
+          <li>
+            <Link to={"/my-application"}>My Application</Link>
+          </li>
+          <li>
+            <Link to={"/postJob"}>Post Job</Link>
+          </li>
+          <li>
+            <Link to={"/mypostedjobs"}>My Posted Jobs</Link>
+          </li>
+        </>
       )}
     </>
   );
